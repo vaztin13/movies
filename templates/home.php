@@ -75,4 +75,6 @@ function showHome() {
 
     echo $html;
 
+    getMovies();
+
 }
