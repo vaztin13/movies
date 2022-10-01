@@ -1,42 +1,7 @@
 <?php
 
-function connectToDB(){
-    return new PDO('mysql:host=localhost;' . 'dbname=movie;charset=utf8', 'root', '');
-}
 
-
-
-function getMovies() {
-    $db = connectToDB();
-
-    $sentence = $db->prepare("SELECT * from movies");
-    $sentence->execute();
-    $movies = $sentence->fetchAll(PDO::FETCH_OBJ);
-    return $movies;
-}
-
-function getMovie($id) {
-    $db = connectToDB();
-
-    $sentence = $db->prepare("SELECT * from movies WHERE id = ?");
-    $sentence->execute(array($id));
-    $movie = $sentence->fetch(PDO::FETCH_OBJ);
-    return $movie;
-}
-
-function addMovie($title, $synopsis, $year, $director){
-    $db = connectToDB();
-    $sentencia = $db->prepare("INSERT INTO movies(title, synopsis, year, director) VALUES(?, ?, ?, ?)");
-    $sentencia->execute(array($title,$synopsis,$year, $director));
-}
-
-function deleteMovieFromDB($id) {
-    $db = connectToDB();
-    $sentence = $db->prepare("DELETE FROM movies WHERE id = ? ");
-    $sentence->execute(array($id));
-}
-
-
+/* 
 function showActionMovie() {
     $db = new PDO('mysql:host=localhost;' . 'dbname=movie;charset=utf8', 'root', '');
 
@@ -46,7 +11,7 @@ function showActionMovie() {
     foreach($movies as $movie) {
         echo $movie->title;
         echo $movie->image;
-        echo $movie->synopsis;
+        echo $movie->plot;
         echo $movie->year;
         echo $movie->director;
     }
@@ -61,7 +26,7 @@ function showRomanceMovie() {
     foreach($movies as $movie) {
         echo $movie->title;
         echo $movie->image;
-        echo $movie->synopsis;
+        echo $movie->plot;
         echo $movie->year;
         echo $movie->director;
     }
@@ -76,7 +41,7 @@ function showComedyMovie() {
     foreach($movies as $movie) {
         echo $movie->title;
         echo $movie->image;
-        echo $movie->synopsis;
+        echo $movie->plot;
         echo $movie->year;
         echo $movie->director;
     }
@@ -91,7 +56,7 @@ function showHorrorMovie() {
     foreach($movies as $movie) {
         echo $movie->title;
         echo $movie->image;
-        echo $movie->synopsis;
+        echo $movie->plot;
         echo $movie->year;
         echo $movie->director;
     }
@@ -106,7 +71,7 @@ function showSfMovie() {
     foreach($movies as $movie) {
         echo $movie->title;
         echo $movie->image;
-        echo $movie->synopsis;
+        echo $movie->plot;
         echo $movie->year;
         echo $movie->director;
     }
@@ -121,9 +86,9 @@ function showDramaMovie() {
     foreach($movies as $movie) {
         echo $movie->title;
         echo $movie->image;
-        echo $movie->synopsis;
+        echo $movie->plot;
         echo $movie->year;
         echo $movie->director;
     }
-}
+} */
 

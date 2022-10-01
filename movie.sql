@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `movies` (
   `id` int(11) NOT NULL,
   `title` varchar(100) NOT NULL,
-  `synopsis` varchar(500) NOT NULL,
+  `plot` varchar(500) NOT NULL,
   `image` varchar(45) NOT NULL,
   `genre_type_id` int(11) NOT NULL,
   `year` varchar(4) NOT NULL,
@@ -41,7 +41,7 @@ CREATE TABLE `movies` (
 -- Dumping data for table `movies`
 --
 
-INSERT INTO `movies` (`id`, `title`, `synopsis`, `image`, `genre_type_id`, `year`, `director`) VALUES
+INSERT INTO `movies` (`id`, `title`, `plot`, `image`, `genre_type_id`, `year`, `director`) VALUES
 (1, 'One day', 'sinopsis de one day (2011)', 'imagen_one_day.jpg', 2, '2011', 'jorgito'),
 (2, 'Star Wars Episode IV', 'sinopsis de star wars', 'imagen_star_wars.jpg', 4, '1977', 'George Lucas'),
 (6, 'Terminator II', 'sinopsis terminator 2', 'imagen_terminator2.jpg', 5, '1991', 'James Cameron'),

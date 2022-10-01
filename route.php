@@ -1,7 +1,7 @@
 <?php
 
-require_once "db.php";
-require_once "templates/home.php";
+require_once "controller/MovieController.php";
+
 
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
 
@@ -13,18 +13,21 @@ if (!empty($_GET['action'])) {
 
 $params = explode('/', $action);
 
+$movieController = new MovieController();
+
 switch ($params[0]) {
     case 'home':
-        showHome();
+        $movieController->showHome();
         break;
     case 'addMovieToDB':
-        addMovieToDB();
+        $movieController->addMovieToDB();
         break;
     case 'deleteMovie':
-        deleteMovie($params[1]);
+        $movieController->deleteMovie($params[1]);
         break;
+        //añadir updateMovie
     case 'viewMovie':
-        viewMovie($params[1]);
+        $movieController->viewMovie($params[1]);
         break;
     case 'action':
         showActionMovie();
