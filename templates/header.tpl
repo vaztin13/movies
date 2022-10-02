@@ -46,28 +46,3 @@
         </div>
     </nav>
 
-    foreach ($movies as $movie) {
-    $html .= '<li> <a href="viewMovie/' . $movie->id . '">' . $movie->title . '</a> ' . $movie->year . ' ' . '<a
-            href="deleteMovie/' . $movie->id . '">borrar </a>' . '</li>';
-    }
-
-
-    <form action="addMovieToDB" method="POST">
-
-        <input type="text" name="title" id="title">
-        <input type="text" name="plot" id="plot">
-        <input type="number" name="year" id="year">
-        <input type="text" name="director" id="director">
-        <input type="submit" value="Agregar">
-
-    </form>
-
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous">
-    </script>
-</body>
-
-</html>
