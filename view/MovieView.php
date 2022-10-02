@@ -1,5 +1,7 @@
 <?php
 
+require_once "./libraries/smarty-4.2.1/libs/Smarty.class.php";
+
 class MovieView
 {
 
