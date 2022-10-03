@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `movies` (
   `id` int(11) NOT NULL,
   `title` varchar(100) NOT NULL,
-  `plot` varchar(500) NOT NULL,
+  `synopsis` varchar(500) NOT NULL,
   `image` varchar(45) NOT NULL,
   `genre_type_id` int(11) NOT NULL,
   `year` varchar(4) NOT NULL,
@@ -41,9 +41,12 @@ CREATE TABLE `movies` (
 -- Dumping data for table `movies`
 --
 
-INSERT INTO `movies` (`id`, `title`, `plot`, `image`, `genre_type_id`, `year`, `director`) VALUES
-(1, 'One day', 'sinopsis de one day (2011)', 'imagen_one_day.jpg', 2, '2011', 'jorgito'),
+INSERT INTO `movies` (`id`, `title`, `synopsis`, `image`, `genre_type_id`, `year`, `director`) VALUES
+(1, 'One day', 'sinopsis de one day (2011)', 'imagen_one_day.jpg', 2, '2011', 'Lone Scherfig'),
 (2, 'Star Wars Episode IV', 'sinopsis de star wars', 'imagen_star_wars.jpg', 4, '1977', 'George Lucas'),
+(3, 'Eternal Sunshine of the Spotless Mind', 'sinopsis de esotsm', 'imagen_esotsm.jpg', 2, '2004', 'Michel Gondry'),
+(4, 'Me before you', 'sinopsis de me before you', 'imagen_me_before_you.jpg', 2, '2016', 'Thea Sharrock'),
+(5, 'The Notebook', 'sinopsis de the notebook', 'imagen_the_notebook.jpg', 2, '2004', 'Nick Cassavetes'),
 (6, 'Terminator II', 'sinopsis terminator 2', 'imagen_terminator2.jpg', 5, '1991', 'James Cameron'),
 (7, 'White chicks', 'sinopsis donde estan las rubias', 'imagen_white_chicks.jpg', 3, '2004', 'Keenen Ivory Wayans'),
 (8, 'The Shining', 'sinopsis shining', 'image_shining.jpg', 6, '1980', 'Stanley Kubrick'),
