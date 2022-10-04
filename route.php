@@ -1,6 +1,7 @@
 <?php
 
 require_once "controller/MovieController.php";
+require_once "controller/LoginController.php";
 
 
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
@@ -14,8 +15,15 @@ if (!empty($_GET['action'])) {
 $params = explode('/', $action);
 
 $movieController = new MovieController();
+$loginController = new LoginController();
 
 switch ($params[0]) {
+    case 'login':
+        $loginController->login();
+        break;
+    case 'verify':
+        $loginController->verifyLogin();
+        break;
     case 'home':
         $movieController->showHome();
         break;

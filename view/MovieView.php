@@ -17,8 +17,7 @@ class MovieView {
         $this->smarty->display('templates/index.tpl');
     }
 
-    function showHomeLocation()
-    {
+    function showHomeLocation() {
         header("Location: " . BASE_URL . "home");
     }
 
