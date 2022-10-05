@@ -12,4 +12,6 @@
     </div>
     <button type="submit" class="btn btn-primary">Login</button>
 </form>
+
+<h3>{$error}</h3>
 {include file="templates/footer.tpl"}

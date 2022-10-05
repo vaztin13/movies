@@ -1,5 +1,7 @@
 <?php
 
+require_once "./libraries/smarty-4.2.1/libs/Smarty.class.php";
+
 class LoginView {
 
     private $smarty;
@@ -9,9 +11,14 @@ class LoginView {
         $this->smarty = new Smarty();
     }
 
-    function showLogin() { 
+    function showLogin($error = " ") { 
         $this->smarty->assign('indexTitle', 'Log In');
+        $this->smarty->assign('error', $error);
         $this->smarty->display('templates/login.tpl');
+    }
+
+    function showHome() {
+        header("Location: " . BASE_URL . "home");
     }
 
 }

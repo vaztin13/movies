@@ -32,7 +32,7 @@ class LoginController {
                 session_start();
                 $_SESSION["email"] = $email;
 
-                $this->view->showHome();
+                $this->view->showHome(); //si no anda cambiar nombre y en login view
             } else {
                 $this->view->showLogin("Acceso denegado");
             }

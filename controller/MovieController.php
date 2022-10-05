@@ -15,7 +15,8 @@ class MovieController {
     }
 
     function showHome() {
-
+        $this->checkLoggedIn(); //se tiene q poner en todas las paginas menos en login controller para evitar bucle de 
+                                // redireccionamiento
         $movies = $this->model->getMovies();
         $this->view->showMovies($movies);
 
@@ -35,5 +36,13 @@ class MovieController {
     function viewMovie($id) {
         $moviesSelected = $this->model->getMovie($id);
         $this->view->showMovie($moviesSelected);
+    }
+
+    function checkLoggedIn() {
+        
+        session_start();
+        if(!isset($_SESSION["email"])) {
+            $this->view->showLoginLocation();
+        }
     }
 }

@@ -26,4 +26,8 @@ class MovieView {
         $this->smarty->assign('movie', $movie);
         $this->smarty->display('templates/showMovie.tpl');
     }
+
+    function showLoginLocation() {
+        header("Location: " . BASE_URL . "login");
+    }
 }
