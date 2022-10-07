@@ -14,6 +14,15 @@ class MovieController {
 
     }
 
+    function checkLoggedIn() {
+        
+        session_start();
+        if(!isset($_SESSION["email"])) {
+            $this->view->showLoginLocation();
+        }
+    }
+
+
     function showHome() {
         $this->checkLoggedIn(); //se tiene q poner en todas las paginas menos en login controller para evitar bucle de 
                                 // redireccionamiento
@@ -23,26 +32,24 @@ class MovieController {
     }
 
     function addMovieToDB() {
+        $this->checkLoggedIn();
         $this->model->addMovie($_POST['title'], $_POST['plot'], $_POST['year'], $_POST['director']);
         //header("Location: home");
         $this->view->showHomeLocation();
     }
 
     function deleteMovie($id) {
+        $this->checkLoggedIn();
         $this->model->deleteMovieFromDB($id);
         $this->view->showHomeLocation();
     }
 
     function viewMovie($id) {
+        $this->checkLoggedIn();
         $moviesSelected = $this->model->getMovie($id);
         $this->view->showMovie($moviesSelected);
     }
 
-    function checkLoggedIn() {
-        
-        session_start();
-        if(!isset($_SESSION["email"])) {
-            $this->view->showLoginLocation();
-        }
-    }
+
+    
 }

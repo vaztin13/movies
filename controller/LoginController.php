@@ -18,6 +18,12 @@ class LoginController {
         $this->view->showLogin();
     }
 
+    function logout() {
+        session_start();
+        session_destroy();
+        $this->view->showLogin("Logged Out");
+    }
+
     function verifyLogin() {
         if (!empty($_POST['email']) && !empty($_POST['password'])) {
             $email = $_POST['email'];
