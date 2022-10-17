@@ -22,26 +22,29 @@ class LoginController {
         session_start();
         session_destroy();
         $this->view->showLogin("Logged Out");
+
+        //mostrar mensaje por pantalla y redirigir a home
     }
 
     function verifyLogin() {
-        if (!empty($_POST['email']) && !empty($_POST['password'])) {
-            $email = $_POST['email'];
-            $password = $_POST['password'];
+        $email = $_POST['email'];
+        $password = $_POST['password'];
 
-            // Obtengo el usuario de la base de datos
-            $user = $this->model->getUser($email);
+        // Obtengo el usuario de la base de datos
+        $user = $this->model->getUser($email);
 
-            // Si el usuario existe y las contraseñas coinciden
-            if ($user && password_verify($password, $user->password)) {
+        // Si el usuario existe y las contraseñas coinciden
+        if ($user && password_verify($password, $user->password)) {
 
-                session_start();
-                $_SESSION["email"] = $email;
+            session_start();
+            $_SESSION['USER_ID'] = $user->id;
+            $_SESSION['USER_EMAIL'] = $user->email;
+            $_SESSION['IS_LOGGED'] = true;
 
-                $this->view->showHome(); //si no anda cambiar nombre y en login view
-            } else {
-                $this->view->showLogin("Acceso denegado");
-            }
+            header("Location: " . BASE_URL);
+            //$this->view->showHome(); //si no anda cambiar nombre y en login view
+        } else {
+            $this->view->showLogin("Acceso denegado");
         }
     }
 }

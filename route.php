@@ -1,6 +1,7 @@
 <?php
 
 require_once "controller/MovieController.php";
+require_once "controller/MovieTypeController.php";
 require_once "controller/LoginController.php";
 
 
@@ -15,6 +16,7 @@ if (!empty($_GET['action'])) {
 $params = explode('/', $action);
 
 $movieController = new MovieController();
+$movieTypeController = new MovieTypeController();
 $loginController = new LoginController();
 
 switch ($params[0]) {
@@ -30,33 +32,32 @@ switch ($params[0]) {
     case 'home':
         $movieController->showHome();
         break;
-    case 'addMovieToDB':
-        $movieController->addMovieToDB();
-        break;
-    case 'deleteMovie':
-        $movieController->deleteMovie($params[1]);
-        break;
-        //añadir updateMovie
     case 'viewMovie':
         $movieController->viewMovie($params[1]);
         break;
-    case 'action':
-        showActionMovie();
-        break;
-    case 'romance':
-        showRomanceMovie();
-        break;
-    case 'comedy':
-        showComedyMovie();
-        break;
-    case 'horror':
-        showHorrorMovie();
-        break;
-    case 'science-fiction':
-        showSfMovie();
-        break;
-    case 'drama':
-        showDramaMovie();
+    case 'filter':
+        $movieTypeController->filter($params[1]);    
+    case 'admin':
+        switch ($params[1]) {
+            case 'manageMovies':
+                $movieController->showManageMovies(isset($params[2]) ? intval($params[2]) : null);
+                break;
+            case 'manageMovieTypes':
+                $movieTypeController->showManageMovieTypes(isset($params[2]) ? intval($params[2]) : null);
+                break;
+            case 'addMovieToDB':
+                $movieController->addMovieToDB();
+                break;
+            case 'deleteMovie':
+                $movieController->deleteMovie($params[2]);
+                break;
+            case 'createMovieType':
+                $movieTypeController->createMovieType();
+                break;
+            case 'deleteMovieType':
+                $movieTypeController->deleteProductType($params[2]); 
+                break;   
+        }
         break;
     default:
         echo ('404 page not found');

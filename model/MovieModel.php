@@ -17,10 +17,14 @@ class MovieModel {
         return $movies;
     }
 
+    function addMovie($title, $genre, $image, $plot, $year, $director){
+        $sentence = $this->db->prepare("INSERT INTO movies(title, genre_type_id, plot, image, year, director) VALUES(?, ?, ?, ?, ?, ?)");
+        $sentence->execute(array($title, $genre, $plot, $image, $year, $director)); //Esto modifica orden de ejecucion en db
+    }
 
-    function addMovie($title, $plot, $year, $director){
-        $sentence = $this->db->prepare("INSERT INTO movies(title, plot, year, director) VALUES(?, ?, ?, ?)");
-        $sentence->execute(array($title,$plot,$year, $director));
+    function updateMovie($id ,$title, $genreType, $image, $plot, $year, $director) {
+        $sentence = $this->db->prepare("UPDATE movies SET title = ?, plot = ?, image = ?, genre_type_id = ?, year = ?, director = ? WHERE id = ?");
+        $sentence->execute(array($title, $plot, $image, $genreType, $year, $director, $id));                                                    
     }
 
     function deleteMovieFromDB($id) {
