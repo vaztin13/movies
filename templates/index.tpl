@@ -1,27 +1,36 @@
 {include file="templates/header.tpl"}
+{include file='templates/nav.tpl'}
 
-<h1>{$indexTitle}</h1>
+
 
 <div class="container">
-    <ul>
+
+    <div class="d-flex justify-content-center" id="index-title">
+        <h1>{$indexTitle}</h1>
+    </div>
+
+    <div class="d-flex align-content-stretch flex-wrap">
+
         {foreach from=$movies item=$movie}
-            <li>
-                {* {$movie->title} - {$movie->year} *}
-                <a href="viewMovie/{$movie->id}">{$movie->title} - {$movie->year}</a>
-                <a href="deleteMovie/{$movie->id}">Borrar</a>
-            </li>
+            <table>
+                <thead>
+                    <tr>
+                        <th id="title-index" colspan="2"><a href="viewMovie/{$movie->id}">{$movie->title} - ({$movie->year})</a></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><a href="viewMovie/{$movie->id}"><img src="static/images/{$movie->image}" alt="{$movie->title}"></a></td>
+                    </tr>
+                    <tr>
+                        <td id="genre-index">{$genreType[$movie->genre_type_id - 2]->genre}</td>
+                    </tr>
+                </tbody>
+
+            </table>
 
         {/foreach}
-    </ul>
 
-    <form action="addMovieToDB" method="POST">
-
-        <input type="text" name="title" id="title">
-        <input type="text" name="plot" id="plot">
-        <input type="number" name="year" id="year">
-        <input type="text" name="director" id="director">
-        <input type="submit" value="Agregar">
-
-    </form>
+    </div>
 </div>
 {include file="templates/footer.tpl"}
