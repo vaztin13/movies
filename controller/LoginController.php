@@ -42,7 +42,6 @@ class LoginController {
             $_SESSION['IS_LOGGED'] = true;
 
             header("Location: " . BASE_URL);
-            //$this->view->showHome(); //si no anda cambiar nombre y en login view
         } else {
             $this->view->showLogin("Acceso denegado");
         }

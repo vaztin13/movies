@@ -29,19 +29,7 @@ class MovieController {
 
     }
 
-/*     function addMovieToDB() {
-        session_start();
-        $this->authHelper->checkLoggedIn();
-        $title = $_POST['title'];
-        $genre = $_POST['genre_type_id'];
-        $image = $_POST['image'];
-        $plot = $_POST['plot'];
-        $year = $_POST['year'];
-        $director = $_POST['director'];
-        $this->model->addMovie($title, $genre, $image, $plot, $year, $director);
-        //header("Location: home");
-        $this->view->showHomeLocation();
-    } */
+
 
     function addMovieToDB() {
         $this->authHelper->checkLoggedIn();
@@ -67,12 +55,7 @@ class MovieController {
         $this->view->goToManageMovies();
     }
 
-/*     function updateMovie($index) {
-        $this->authHelper->checkLoggedIn();
-        $movies = $this->model->getMovies();
-        $genre = $this->movieTypeModel->getMovieTypes();
-        $this->view->showMovies($movies, $genre, $index);
-    } */
+
 
     function showManageMovies($index) {
         $this->authHelper->checkLoggedIn();
