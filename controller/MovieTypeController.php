@@ -41,8 +41,13 @@ class MovieTypeController {
 
     function deleteProductType($movieTypeId) {
         $this->authHelper->checkLoggedIn();
-        $this->movieTypeModel->deleteMovieType($movieTypeId);
-        $this->view->goToManageMovieTypes();
+        $movies = $this->movieTypeModel->filter($movieTypeId);
+        if (count($movies) > 0) {
+            $this->view->errorOnDelete();
+        } else {
+            $this->movieTypeModel->deleteMovieType($movieTypeId);
+            $this->view->goToManageMovieTypes();
+        }
     }
 
     function filter($id) {

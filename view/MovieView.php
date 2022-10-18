@@ -71,4 +71,8 @@ class MovieView {
     function showLoginLocation() {
         header("Location: " . BASE_URL . "login");
     }
+
+    function errorOnDelete() {
+        $this->smarty->display('templates/error-delete.tpl');
+    }
 }
