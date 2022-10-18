@@ -28,7 +28,7 @@ class MovieView {
 
 
     function showManageMovies($movies, $genreType, $index) {
-        $this->smarty->assign('active', 'manageMovies');
+        $this->smarty->assign('active', 'manage-movies');
         $this->smarty->assign('movies', $movies);
         $this->smarty->assign('genreType', $genreType);
         $this->smarty->assign('index', $index);
@@ -36,18 +36,18 @@ class MovieView {
     }
 
     function goToManageMovies() {
-        header("Location: ".BASE_URL."admin/manageMovies");
+        header("Location: ".BASE_URL."admin/manage-movies");
     }
 
     function showManageMovieTypes($movieTypes, $index) {
-        $this->smarty->assign('active', 'manageMovieTypes');
+        $this->smarty->assign('active', 'manage-movie-types');
         $this->smarty->assign('movieTypes', $movieTypes);
         $this->smarty->assign('index', $index);
         $this->smarty->display('templates/admin/manageMovieTypes.tpl');
     }
 
     function goToManageMovieTypes() {
-        header("Location: ".BASE_URL."admin/manageMovieTypes");
+        header("Location: ".BASE_URL."admin/manage-movie-types");
     }
 
     function showMovie($movie, $movies, $genreType) {

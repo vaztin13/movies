@@ -24,11 +24,11 @@
             </div>
             {if $active != null}
                 <ul class="nav nav-tabs">
-                    <li class="nav-item"><a href="admin/manageMovies"
-                            class="nav-link text-dark {if $active == 'manageMovies'}active{/if}">Administrar Peliculas</a>
+                    <li class="nav-item"><a href="admin/manage-movies"
+                            class="nav-link text-dark {if $active == 'manage-movies'}active{/if}">Administrar Peliculas</a>
                     </li>
-                    <li class="nav-item"><a href="admin/manageMovieTypes"
-                            class="nav-link text-dark {if $active == 'manageMovieTypes'}active{/if}">Administrar
+                    <li class="nav-item"><a href="admin/manage-movie-types"
+                            class="nav-link text-dark {if $active == 'manage-movie-types'}active{/if}">Administrar
                             Categorías</a>
                     </li>
                     {* <li class="nav-item"><a href="admin/manageUsers" class="nav-link text-dark {if $active == 'manageUsers'}active{/if}">Administrar Usuarios</a></li> *}

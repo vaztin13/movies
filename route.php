@@ -32,17 +32,17 @@ switch ($params[0]) {
     case 'home':
         $movieController->showHome();
         break;
-    case 'viewMovie':
+    case 'view-movie':
         $movieController->viewMovie($params[1]);
         break;
     case 'filter':
         $movieTypeController->filter($params[1]);    
     case 'admin':
         switch ($params[1]) {
-            case 'manageMovies':
+            case 'manage-movies':
                 $movieController->showManageMovies(isset($params[2]) ? intval($params[2]) : null);
                 break;
-            case 'manageMovieTypes':
+            case 'manage-movie-types':
                 $movieTypeController->showManageMovieTypes(isset($params[2]) ? intval($params[2]) : null);
                 break;
             case 'addMovieToDB':

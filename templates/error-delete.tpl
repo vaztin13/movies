@@ -8,7 +8,7 @@
             <p class="lead">
                 La categoria contiene peliculas asociadas
             </p>
-            <a href="{BASE_URL}./admin/manageMovieTypes" class="btn btn-primary">Atrás</a>
+            <a href="{BASE_URL}./admin/manage-movie-types" class="btn btn-primary">Atrás</a>
         </div>
     </div>
 </body>

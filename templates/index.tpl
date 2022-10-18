@@ -15,12 +15,12 @@
             <table>
                 <thead>
                     <tr>
-                        <th id="title-index" colspan="2"><a href="viewMovie/{$movie->id}">{$movie->title} - ({$movie->year})</a></th>
+                        <th id="title-index" colspan="2"><a href="view-movie/{$movie->id}">{$movie->title} - ({$movie->year})</a></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td><a href="viewMovie/{$movie->id}"><img src="static/images/{$movie->image}" alt="{$movie->title}"></a></td>
+                        <td><a href="view-movie/{$movie->id}"><img src="static/images/{$movie->image}" alt="{$movie->title}"></a></td>
                     </tr>
                     <tr>
                         <td id="genre-index">{$genreType[$movie->genre_type_id - 2]->genre}</td>

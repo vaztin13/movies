@@ -36,7 +36,7 @@
                         <th scope="row">{$movieType->id}</th>
                         <td>{$movieType->genre}</td>
                         <td>{$movieType->description}</td>
-                        <td><a href="admin/manageMovieTypes/{counter}" type="button"
+                        <td><a href="admin/manage-movie-types/{counter}" type="button"
                                 class="btn btn-warning btn-sm">Modificar</a></td>
                         <td><a href="admin/deleteMovieType/{$movieType->id}" type="button"
                                 class="btn btn-danger btn-sm">Borrar</a></td>

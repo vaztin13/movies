@@ -71,7 +71,7 @@
                         <td>{$genreType[$movie->genre_type_id - 2]->genre}</td>
                         <td>{$movie->year}</td>
                         <td>{$movie->director}</td>
-                        <td><a href="admin/manageMovies/{counter}" type="button"
+                        <td><a href="admin/manage-movies/{counter}" type="button"
                                 class="btn btn-warning btn-sm">Modificar</a></td>
                         <td><a href="admin/deleteMovie/{$movie->id}" type="button" class="btn btn-danger btn-sm">Borrar</a>
                         </td>
